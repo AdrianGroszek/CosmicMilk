@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 type PlanetSliderProps = {
-  planetsImg: StaticImageData[];
+  planetsImg: StaticImageData[]
 }
 
-export default function PlanetSlider({planetsImg}: PlanetSliderProps) {
+export default function PlanetSlider({ planetsImg }: PlanetSliderProps) {
   const [currSlide, setCurrSlide] = useState(0)
 
   const prevSlide = () =>
@@ -17,18 +17,18 @@ export default function PlanetSlider({planetsImg}: PlanetSliderProps) {
     setCurrSlide((curr) => (curr === planetsImg.length - 1 ? 0 : curr + 1))
 
   return (
-    <div className="overflow-x-hidden relative rounded-xl shadow-lg shadow-neutral-900">
+    <div className="overflow-x-hidden relative rounded-xl shadow-lg shadow-neutral-900 border-2 border-navybluelight">
       <div
         className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${currSlide * 100}%)` }}
       >
-        {planetsImg.map((planet) => (
+        {planetsImg.map((planet, index) => (
           <Image
             src={planet}
             width={1184}
             height={664}
             alt="Particular planet image"
-            
+            key={index}
           />
         ))}
       </div>

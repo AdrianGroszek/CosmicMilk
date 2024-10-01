@@ -31,7 +31,7 @@ export default function PlanetShowcaseSection() {
   return <>
   <PlanetShowcase
   title='Lactarius-7: The Icy Nebula Planet'
-  planetsImg={[planetAV1, planetAV2, planetAV3]}
+  planetsImg={[planetAV3, planetAV1, planetAV2]}
   productsImg={[productOneA, productTwoA, productThreeA, productFourA]}>
     Lactarius-7, located in the heart of the Icy Nebula, is known for
     its creamy milk with a subtle, icy aftertaste. The inhabitants,
@@ -42,27 +42,17 @@ export default function PlanetShowcaseSection() {
   </PlanetShowcase>
 
   <PlanetShowcase
-  title='Lactarius-7: The Icy Nebula Planet'
-  planetsImg={[planetBV1, planetBV2, planetBV3]}
+  title='Capriox-B: The Mountain Peaks Planet'
+  planetsImg={[planetBV3, planetBV1, planetBV2]}
   productsImg={[productOneB, productTwoB, productThreeB, productFourB]}>
-    Lactarius-7, located in the heart of the Icy Nebula, is known for
-    its creamy milk with a subtle, icy aftertaste. The inhabitants,
-    called Lactonids, have perfected their craft over centuries, raising
-    special cosmic cows on the planet&apos;s frozen plains. Thanks to
-    Lactarius-7&apos;s unique atmosphere, their milk naturally contains
-    antioxidants and rare nutrients that slow down the aging process.
+    Capriox-B is a world of endless mountain ranges, home to a resilient breed of cosmic goats known as Capriox. Their milk boasts an intense, rich flavor with subtle herbal notes, which the goats pick up while grazing in the high-altitude valleys. Capriox-B milk is perfect for those seeking a unique taste and an extra burst of energy.
   </PlanetShowcase>
 
   <PlanetShowcase 
-  title='Lactarius-7: The Icy Nebula Planet'
-  planetsImg={[planetCV1, planetCV2, planetCV3]}
+  title='Nebula-3: The Land of Eternal Fields'
+  planetsImg={[planetCV3, planetCV1, planetCV2]}
   productsImg={[productOneC, productTwoC, productThreeC, productFourC]}>
-    Lactarius-7, located in the heart of the Icy Nebula, is known for
-    its creamy milk with a subtle, icy aftertaste. The inhabitants,
-    called Lactonids, have perfected their craft over centuries, raising
-    special cosmic cows on the planet&apos;s frozen plains. Thanks to
-    Lactarius-7&apos;s unique atmosphere, their milk naturally contains
-    antioxidants and rare nutrients that slow down the aging process.
+    Nebula-3 is a planet of endless green meadows, where the Taurions have been raising giant milkbeasts for generations—majestic animals with triple stomachs, allowing them to produce rich, velvety milk with a complex nutritional profile. This milk is a health powerhouse—full of protein, calcium, and vitamins, perfect for any time of the day!
   </PlanetShowcase>
 </>
 }
