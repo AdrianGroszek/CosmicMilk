@@ -1,34 +1,36 @@
-import Link from 'next/link'
-import { FaBars } from 'react-icons/fa6'
-import { PiBasketBold } from 'react-icons/pi'
+import Link from "next/link";
+import { PiBasketBold } from "react-icons/pi";
+import MobileLinkstWrapper from "./ui/mobile-links-wrapper";
 
 export function NavBar() {
   return (
-    <nav className="px-4 py-3 bg-navybluelight flex justify-between fixed w-full items-stretch z-10">
+    <nav className="fixed z-20 flex w-full items-stretch justify-between bg-navybluelight px-0 py-3">
       <Link
         href="/"
-        className="text-cosmicgreen font-semibold self-center sm:text-lg lg:text-xl"
+        className="ml-4 self-center font-semibold text-cosmicgreen sm:text-lg lg:text-xl"
       >
         CosmicMilk
       </Link>
-      <ul className="hidden sm:flex gap-1">
-        <li className="h-full flex hover:text-neutral-300 rounded">
-          <Link href="" className="h-full flex items-center px-4">
+
+      {/* start only for upper 768px width */}
+      <ul className="hidden gap-1 sm:flex">
+        <li className="flex h-full rounded hover:text-neutral-300">
+          <Link href="/" className="flex h-full items-center px-4">
             HOME
           </Link>
         </li>
-        <li className="h-full flex rounded hover:text-neutral-300">
-          <Link href="" className="h-full flex items-center px-4">
+        <li className="flex h-full rounded hover:text-neutral-300">
+          <Link href="/products" className="flex h-full items-center px-4">
             PRODUCTS
           </Link>
         </li>
       </ul>
-      <button className="p-1 hidden sm:inline-block hover:text-neutral-300">
+      {/* end only for upper 768px width */}
+
+      <button className="mr-4 hidden p-1 hover:text-neutral-300 sm:inline-block">
         <PiBasketBold className="h-6 w-6" />
       </button>
-      <button className="p-2 sm:hidden">
-        <FaBars />
-      </button>
+      <MobileLinkstWrapper />
     </nav>
-  )
+  );
 }

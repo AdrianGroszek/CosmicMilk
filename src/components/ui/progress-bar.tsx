@@ -17,18 +17,18 @@ export default function ProgressBar({ duration, imgIndex }: ProgressBarProps) {
         if (prev >= duration) {
           return duration
         }
-        return prev + 10
+        return prev + 50
       })
-    }, 10)
+    }, 50)
     return () => clearInterval(interval)
   }, [duration, imgIndex])
 
   const percent: number = (progressBar / duration) * 100
 
   return (
-    <div className="absolute bottom-0 w-full bg-transparent h-1.5">
+    <div className="absolute bottom-0 w-full bg-transparent h-1">
       <div
-        className="bg-cosmicgreen h-1.5"
+        className="bg-cosmicgreen h-1 ease-out duration-100"
         style={{ width: `${percent}%` }}
       ></div>
     </div>

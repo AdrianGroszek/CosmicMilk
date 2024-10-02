@@ -1,17 +1,17 @@
-import CourierShowcase from './courier-showcase'
+import CourierShowcase from "./courier-showcase";
 
-import courierOneV1 from '@/public/courier-one.jpg'
-import courierOneV2 from '@/public/courier-one-v2.jpg'
+import courierOneV1 from "@/public/courier-one.jpg";
+import courierOneV2 from "@/public/courier-one-v2.jpg";
 
-import courierTwoV1 from '@/public/courier-two.jpg'
-import courierTwoV2 from '@/public/courier-two-v2.jpg'
+import courierTwoV1 from "@/public/courier-two.jpg";
+import courierTwoV2 from "@/public/courier-two-v2.jpg";
 
-import courierThreeV1 from '@/public/courier-three.jpg'
-import courierThreeV2 from '@/public/courier-three-v2.jpg'
+import courierThreeV1 from "@/public/courier-three.jpg";
+import courierThreeV2 from "@/public/courier-three-v2.jpg";
 
 export default function CouriersShowcaseSection() {
   return (
-    <ul>
+    <ul className="flex flex-col items-center xl:max-w-[1200px] xl:flex-row xl:items-start">
       <CourierShowcase
         courierName='Captain Stella "Star Courier" Novax'
         courierImg={[courierOneV1, courierOneV2]}
@@ -24,6 +24,7 @@ export default function CouriersShowcaseSection() {
       <CourierShowcase
         courierName='Epsilon "Flying Goat" Tarix'
         courierImg={[courierTwoV1, courierTwoV2]}
+        colReverse={true}
       >
         A specialist on the planetary routes of Capriox-B, Epsilon ensures the
         milk is always transported in perfect conditions, protected from extreme
@@ -39,5 +40,5 @@ export default function CouriersShowcaseSection() {
         dry.
       </CourierShowcase>
     </ul>
-  )
+  );
 }

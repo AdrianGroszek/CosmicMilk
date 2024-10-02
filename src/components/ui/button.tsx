@@ -21,7 +21,7 @@ export default function Button({
   ...props
 }: Props) {
   const baseClasses =
-    "font-bold font-cosmic relative overflow-hidden after:bg-neutral-50 after:content-['*'] after:h-[155px] after:w-[50px] after:absolute after:opacity-20 after:left-[-75px] after:top-[-50px] after:rotate-[35deg] after:ease-out after:duration-500 hover:after:left-[120%]"
+    "font-bold font-cosmic relative overflow-hidden after:bg-neutral-50 after:content-['*'] after:h-[155px] after:w-[50px] after:absolute after:opacity-20 after:left-[-75px] after:top-[-50px] after:rotate-[35deg] after:ease-out after:duration-500 hover:after:left-[120%] border-2 border-cosmicgreen"
 
   const sizeClasses = {
     small: 'px-3 py-1 text-sm rounded-md',
@@ -31,7 +31,7 @@ export default function Button({
 
   const colorClasses = {
     solid: 'bg-cosmicgreen text-navybluedark hover:bg-cosmicgreendark',
-    border: 'border-2 border-cosmicgreen text-cosmicgreen',
+    border: 'text-cosmicgreen',
   }
 
   const classNames = `${sizeClasses[size] || sizeClasses.medium} ${colorClasses[fill] || colorClasses.solid} ${baseClasses}`
