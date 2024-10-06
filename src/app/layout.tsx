@@ -3,6 +3,7 @@ import { DM_Sans, Oxanium } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/navbar";
 import Footer from "@/components/ui/footer";
+import { ReduxProvider } from "@/redux/provider";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -30,9 +31,11 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${oxanium.variable} relative font-sans antialiased`}
       >
-        <NavBar />
-        {children}
-        <Footer />
+        <ReduxProvider>
+          <NavBar />
+          {children}
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );
