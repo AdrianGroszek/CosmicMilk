@@ -33,7 +33,7 @@ export default function NavbarMobileLinks({
         </li>
         <li className="flex h-full w-full border-b border-neutral-50/20 duration-300 hover:bg-navybluedark">
           <Link
-            href="/products"
+            href="/products?planet=All"
             className="flex h-full w-full items-center justify-center py-5"
             onClick={toggleOpenNavbarFunc}
           >

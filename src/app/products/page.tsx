@@ -1,45 +1,38 @@
 import Image from "next/image";
-import IcyPlanetImg from "@/public/planet-a-v2.jpg";
-import ProductCard from "@/components/ui/product-card";
+import backgroundImage from "@/public/products-section-background.png";
+import { getProducts } from "@/services/apiProducts";
+import ProductsFilter from "@/components/products-filter";
 
-export default function Products() {
+export type ProductType = {
+  id: number;
+  created_at: string;
+  name: string;
+  description: string;
+  images: string[];
+  variants: { price: number; opacity: string }[];
+  planetOfOrigin: string;
+  type: string;
+  storageInstructions: string;
+  nutritionalInfo: string;
+  status: "New" | null;
+};
+
+export default async function Products() {
+  const products: ProductType[] = await getProducts();
+
   return (
     <main className="relative pt-[56px]">
       {/* Planet hero image */}
-      <div className="h-[150px] sm:h-[250px] lg:h-[500px]">
+      <div className="h-[150px] sm:h-[250px]">
         <Image
-          src={IcyPlanetImg}
+          src={backgroundImage}
           alt="Icy planet image"
-          className="h-full object-cover"
+          priority
+          className="h-full w-full object-cover"
         />
       </div>
-
-      {/* Filter category */}
-      <div className="sticky top-[55px] z-10 bg-navybluelight px-2 pt-2">
-        <h3 className="px-1 font-bold">Shop By Categories:</h3>
-        <ul className="text-textdark flex gap-4">
-          <li className="p-1">Planet-A</li>
-          <li className="p-1">Planet-B</li>
-          <li className="p-1">Planet-C</li>
-        </ul>
-      </div>
-
-      {/* Products list */}
-      <ul className="grid grid-cols-2 gap-2 px-3">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </ul>
+      {/* Products */}
+      <ProductsFilter products={products} />
     </main>
   );
 }

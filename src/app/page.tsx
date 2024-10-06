@@ -10,11 +10,7 @@ import whyCosmicMilkV1 from "@/public/why-cosmicmilk-v1.jpg";
 import whyCosmicMilkV2 from "@/public/why-cosmicmilk-v2.jpg";
 import whyCosmicMilkV3 from "@/public/why-cosmicmilk-v3.jpg";
 
-import { FaSquareInstagram } from "react-icons/fa6";
-import { FaFacebook } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
+import SmoothScrollBtn from "@/components/ui/smooth-scroll-btn";
 
 export default function Home() {
   return (
@@ -32,16 +28,25 @@ export default function Home() {
           and nutritional profile. Transported by our top interplanetary
           couriers, we deliver the best the cosmos has to offer, right to Earth.
         </p>
-        <div className="mt-4 flex items-center justify-center">
-          <Button variant="btn">START EXPLORING NOW !</Button>
-        </div>
+        <SmoothScrollBtn targetElement="planets-info-section" />
         {/* Temporary background image */}
       </section>
 
-      <Image src={milkSmokeDark} alt="" fill className="object-cover" />
+      <div className="absolute h-full w-full">
+        <Image
+          src={milkSmokeDark}
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
 
       {/* Planets info section */}
-      <section className="w-full bg-navybluedark px-4 sm:flex sm:justify-center">
+      <section
+        className="w-full bg-navybluedark px-4 pt-[85px] sm:flex sm:justify-center"
+        id="planets-info-section"
+      >
         <div className="sm:w-[600px] lg:flex lg:w-full lg:flex-col lg:items-center">
           <h3 className="mb-6 text-lg font-bold md:text-center md:text-2xl lg:mb-12 lg:text-3xl xl:mb-20">
             Our Planets and Their Unique Stories
@@ -98,7 +103,9 @@ export default function Home() {
               </p>
             </div>
             <div className="hidden xl:mb-10 xl:flex xl:justify-center">
-              <Button variant="btn">CHECK OUT PRODUCTS</Button>
+              <Button variant="link" href="/products?planet=All">
+                CHECK OUT PRODUCTS
+              </Button>
             </div>
           </div>
           <div className="flex flex-col items-center">
@@ -109,7 +116,9 @@ export default function Home() {
               />
             </div>
             <div className="xl:hidden">
-              <Button variant="btn">CHECK OUT PRODUCTS</Button>
+              <Button variant="link" href="/products?planet=All">
+                CHECK OUT PRODUCTS
+              </Button>
             </div>
           </div>
         </div>
@@ -131,35 +140,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer section */}
-      <footer className="flex flex-col items-center pb-14 text-neutral-300">
-        <h3 className="mb-2 pt-12 text-xl font-bold">Contact Us</h3>
-        <div className="mb-12 flex flex-col gap-2 text-center">
-          <p>
-            <span className="font-semibold text-cosmicgreen">Email</span>{" "}
-            info@galacticmilk.com
-          </p>
-          <p>
-            <span className="font-semibold text-cosmicgreen">Phone</span> +12
-            345 678 901
-          </p>
-          <p>
-            <span className="block font-semibold text-cosmicgreen">
-              Live Support Center
-            </span>{" "}
-            Click here to chat with our advisor
-          </p>
-        </div>
-        <div className="mb-3 flex gap-2 text-neutral-300 *:h-[25px] *:w-[25px]">
-          <FaSquareInstagram />
-          <FaFacebook />
-          <FaLinkedin />
-          <FaYoutube />
-          <FaXTwitter />
-        </div>
-        <p>© 2024 CosmicMilk</p>
-      </footer>
     </main>
   );
 }

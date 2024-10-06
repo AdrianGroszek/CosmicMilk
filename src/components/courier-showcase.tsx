@@ -22,7 +22,7 @@ export default function CourierShowcase({
       className={`relative mb-8 flex flex-col items-center gap-2 md:mb-16 md:w-[80%] md:items-start lg:max-w-[1000px] xl:flex-col-reverse xl:items-center xl:gap-6 ${colReverse ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       <div
-        className={`sm:w-[75%] md:sticky md:top-[56px] xl:relative xl:top-0 ${colReverse ? "sm:pr-3 lg:pr-6" : "sm:pl-3 lg:pl-6"} xl:p-0`}
+        className={`sm:w-[75%] md:sticky md:top-[65px] xl:relative xl:top-0 ${colReverse ? "sm:pr-3 lg:pr-6" : "sm:pl-3 lg:pl-6"} xl:p-0`}
       >
         <h3 className="text-center text-lg font-bold md:text-start xl:text-center">
           {courierNameArr[0]}
