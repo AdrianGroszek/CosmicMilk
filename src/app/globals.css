@@ -17,3 +17,11 @@ body,
   @apply bg-navybluelight;
   @apply text-neutral-50;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}

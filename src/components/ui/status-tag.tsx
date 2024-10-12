@@ -1,11 +1,12 @@
 type StatusTagProps = {
   status: "new" | "sale";
+  absolute?: boolean;
 };
 
-export default function StatusTag({ status }: StatusTagProps) {
+export default function StatusTag({ status, absolute = true }: StatusTagProps) {
   return (
     <span
-      className={`absolute z-[2] ml-2 mt-2 rounded-lg bg-gold px-2 text-sm text-navybluedark sm:text-base ${status === "new" ? "bg-gold" : "bg-redlight"}`}
+      className={`${absolute ? "absolute" : "relative"} z-[2] rounded-lg bg-gold p-1 px-2 text-sm font-bold text-navybluedark sm:text-base ${status === "new" ? "bg-gold" : "bg-redlight"}`}
     >
       {status === "new" ? "NEW" : "SALE"}
     </span>

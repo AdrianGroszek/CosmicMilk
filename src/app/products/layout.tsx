@@ -3,5 +3,5 @@ export default function ProductsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main>{children}</main>;
+  return <main className="flex items-center justify-center">{children}</main>;
 }

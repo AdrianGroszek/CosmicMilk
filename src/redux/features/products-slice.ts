@@ -6,7 +6,7 @@ export type ProductType = {
   name: string;
   description: string;
   images: string[];
-  variants: { price: number; opacity: string }[];
+  variants: { price: number; capacity: string }[];
   planetOfOrigin: string;
   type: string;
   storageInstructions: string;
@@ -16,10 +16,12 @@ export type ProductType = {
 
 type ProductsState = {
   products: ProductType[];
+  product: ProductType | undefined;
 };
 
 const initialState: ProductsState = {
   products: [],
+  product: undefined,
 };
 
 export const productsSlice = createSlice({
@@ -29,8 +31,13 @@ export const productsSlice = createSlice({
     setProducts: (state, action: PayloadAction<ProductType[]>) => {
       state.products = action.payload;
     },
+    getProduct: (state, action: PayloadAction<number>) => {
+      state.product =
+        state.products.find((product) => product.id === action.payload) ||
+        undefined;
+    },
   },
 });
 
-export const { setProducts } = productsSlice.actions;
+export const { setProducts, getProduct } = productsSlice.actions;
 export default productsSlice.reducer;

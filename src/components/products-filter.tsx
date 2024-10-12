@@ -1,9 +1,12 @@
 "use client";
 
-import { ProductType } from "@/app/products/page";
+import { setProducts, type ProductType } from "@/redux/features/products-slice";
 import ProductCard from "./ui/product-card";
 import { useSearchParams } from "next/navigation";
-import CategoriesLink from "./categories-link";
+import FilterCategories from "./filter-categories";
+import { useDispatch } from "react-redux";
+import { useAppSelector, type AppDispatch } from "@/redux/store";
+import { useEffect } from "react";
 
 type ProductsFilterProps = {
   products: ProductType[];
@@ -12,6 +15,10 @@ type ProductsFilterProps = {
 export default function ProductsFilter({ products }: ProductsFilterProps) {
   const searchParams = useSearchParams();
   const planet = searchParams.get("planet");
+  const dispatch = useDispatch<AppDispatch>();
+  const productsState = useAppSelector(
+    (state) => state.productsReducer.products,
+  );
 
   const filteredProducts =
     planet === "All"
@@ -20,6 +27,11 @@ export default function ProductsFilter({ products }: ProductsFilterProps) {
           (product) =>
             product.planetOfOrigin.toLowerCase() === planet?.toLowerCase(),
         );
+
+  useEffect(() => {
+    dispatch(setProducts(products));
+    console.log(productsState);
+  }, [dispatch, products, productsState]);
 
   return (
     <>
@@ -32,20 +44,7 @@ export default function ProductsFilter({ products }: ProductsFilterProps) {
         </h3>
 
         {/* Products categories filter by planets */}
-        <ul className="flex gap-4 text-textdark">
-          <CategoriesLink planet={planet} slug="All">
-            All Products
-          </CategoriesLink>
-          <CategoriesLink planet={planet} slug="Lactarius-7">
-            Lactarius-7
-          </CategoriesLink>
-          <CategoriesLink planet={planet} slug="Capriox-B">
-            Capriox-B
-          </CategoriesLink>
-          <CategoriesLink planet={planet} slug="Nebula-3">
-            Nebula-3
-          </CategoriesLink>
-        </ul>
+        <FilterCategories planet={planet} />
       </div>
 
       {/* Products list */}

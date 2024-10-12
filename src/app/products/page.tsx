@@ -2,7 +2,7 @@ import Image from "next/image";
 import backgroundImage from "@/public/products-section-background.png";
 import { getProducts } from "@/services/apiProducts";
 import ProductsFilter from "@/components/products-filter";
-import { ProductType } from "@/redux/features/products-slice";
+import { type ProductType } from "@/redux/features/products-slice";
 
 export default async function Products() {
   const products: ProductType[] = await getProducts();
