@@ -54,6 +54,7 @@ export default function DragScrollImages({ product }: DragScrollImagesProps) {
             width={430}
             height={430}
             src={image}
+            priority
             alt={`Image of ${product.name} product`}
             className="h-full w-full rounded-xl object-cover"
           />

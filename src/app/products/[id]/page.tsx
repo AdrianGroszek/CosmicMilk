@@ -1,5 +1,5 @@
 import DragScrollImages from "@/components/drag-scroll-images";
-import ProductCard from "@/components/ui/product-card";
+import RelatedProducts from "@/components/related-products";
 import StatusTag from "@/components/ui/status-tag";
 import { type ProductType } from "@/redux/features/products-slice";
 import { getProduct } from "@/services/apiProducts";
@@ -80,14 +80,7 @@ export default async function ProductDetailsPage({
       </div>
 
       {/* Related Products */}
-      <div className="mt-10 flex flex-col items-center">
-        <h3 className="mb-5 text-center text-xl font-bold">Related Products</h3>
-        <ul className="mb-4 flex h-full gap-1 overflow-x-auto rounded-xl lg:w-[1000px]">
-          <ProductCard product={singleProduct} />
-          <ProductCard product={singleProduct} />
-          <ProductCard product={singleProduct} />
-        </ul>
-      </div>
+      <RelatedProducts />
     </main>
   );
 }
