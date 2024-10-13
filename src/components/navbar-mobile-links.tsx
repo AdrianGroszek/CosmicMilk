@@ -3,11 +3,13 @@ import Link from "next/link";
 type NavbarMobileLinksProps = {
   isOpen: boolean;
   toggleOpenNavbarFunc: () => void;
+  toggleOpenCartFunc: () => void;
 };
 
 export default function NavbarMobileLinks({
   isOpen,
   toggleOpenNavbarFunc,
+  toggleOpenCartFunc,
 }: NavbarMobileLinksProps) {
   return (
     <>
@@ -31,7 +33,7 @@ export default function NavbarMobileLinks({
             HOME
           </Link>
         </li>
-        <li className="flex h-full w-full border-b border-neutral-50/20 duration-300 hover:bg-navybluedark">
+        <li className="flex h-full w-full border-y border-neutral-50/20 duration-300 hover:bg-navybluedark">
           <Link
             href="/products?planet=All"
             className="flex h-full w-full items-center justify-center py-5"
@@ -41,16 +43,15 @@ export default function NavbarMobileLinks({
           </Link>
         </li>
         <li className="flex h-full w-full duration-300 hover:bg-navybluedark">
-          <Link
-            href="/cart"
+          <button
             className="flex h-full w-full items-center justify-center py-5"
-            onClick={toggleOpenNavbarFunc}
+            onClick={toggleOpenCartFunc}
           >
             CART
-          </Link>
+          </button>
         </li>
       </ul>
-      {/* start navigation links for mobile */}
+      {/* end navigation links for mobile */}
     </>
   );
 }

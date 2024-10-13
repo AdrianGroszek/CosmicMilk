@@ -1,8 +1,27 @@
+"use client";
+
 import Link from "next/link";
 import { PiBasketBold } from "react-icons/pi";
 import MobileLinkstWrapper from "./ui/mobile-links-wrapper";
+import { useState } from "react";
 
 export function NavBar() {
+  const [isOpenNavbar, setIsOpenNavbar] = useState(false);
+  const [isOpenCart, setIsOpenCart] = useState(false);
+
+  const toggleOpenNavbar = () => {
+    if (isOpenCart) {
+      setIsOpenCart(false);
+    }
+    setIsOpenNavbar((curr) => !curr);
+  };
+  const toggleOpenCart = () => {
+    if (isOpenNavbar) {
+      setIsOpenNavbar(false);
+    }
+    setIsOpenCart((curr) => !curr);
+  };
+
   return (
     <nav className="fixed z-20 flex w-full items-stretch justify-between border-b border-navybluedark bg-navybluelight px-0 py-3 lg:px-10 xl:px-20">
       <Link
@@ -31,11 +50,19 @@ export function NavBar() {
         </ul>
         {/* end only for upper 768px width */}
 
-        <button className="mr-4 hidden p-1 duration-300 hover:text-cosmicgreen sm:inline-block">
+        <button
+          className="mr-4 hidden p-1 duration-300 hover:text-cosmicgreen sm:inline-block"
+          onClick={toggleOpenCart}
+        >
           <PiBasketBold className="h-6 w-6" />
         </button>
       </div>
-      <MobileLinkstWrapper />
+      <MobileLinkstWrapper
+        isOpenNavbar={isOpenNavbar}
+        isOpenCart={isOpenCart}
+        toggleOpenCartFunc={toggleOpenCart}
+        toggleOpenNavbarFunc={toggleOpenNavbar}
+      />
     </nav>
   );
 }

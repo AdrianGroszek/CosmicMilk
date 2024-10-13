@@ -30,7 +30,6 @@ export default function ProductsFilter({ products }: ProductsFilterProps) {
 
   useEffect(() => {
     dispatch(setProducts(products));
-    console.log(productsState);
   }, [dispatch, products, productsState]);
 
   return (
