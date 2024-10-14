@@ -4,6 +4,8 @@ import { type ProductType } from "@/redux/features/products-slice";
 import StatusTag from "./ui/status-tag";
 import Button from "./ui/button";
 import { useState } from "react";
+import { addProductToCart } from "@/redux/features/cart-slice";
+import { useDispatch } from "react-redux";
 
 type ProductInfoProps = {
   singleProduct: ProductType;
@@ -15,6 +17,7 @@ type ProductVariantsType = {
 };
 
 export default function ProductInfo({ singleProduct }: ProductInfoProps) {
+  const dispatch = useDispatch();
   const [selectedProductVariants, setSelectedProductVariants] = useState<
     ProductVariantsType | undefined
   >(singleProduct.variants.at(0));
@@ -23,6 +26,10 @@ export default function ProductInfo({ singleProduct }: ProductInfoProps) {
 
   function handleSelectProductVariant(index: number) {
     setSelectedProductVariants(singleProduct.variants.at(index));
+  }
+
+  function handleAddProcuctToCart() {
+    dispatch(addProductToCart(singleProduct, selectedProductVariants!));
   }
 
   return (
@@ -81,7 +88,10 @@ export default function ProductInfo({ singleProduct }: ProductInfoProps) {
         ))}
       </ul>
 
-      <button className="relative mt-5 w-full overflow-hidden rounded-lg border-2 border-cosmicgreen bg-cosmicgreen px-4 py-2 font-cosmic text-base font-bold text-navybluedark after:absolute after:left-[-75px] after:top-[-50px] after:h-[155px] after:w-[50px] after:rotate-[35deg] after:bg-neutral-50 after:opacity-20 after:duration-500 after:ease-out after:content-[''] hover:bg-cosmicgreendark hover:after:left-[120%]">
+      <button
+        className="relative mt-5 w-full overflow-hidden rounded-lg border-2 border-cosmicgreen bg-cosmicgreen px-4 py-2 font-cosmic text-base font-bold text-navybluedark after:absolute after:left-[-75px] after:top-[-50px] after:h-[155px] after:w-[50px] after:rotate-[35deg] after:bg-neutral-50 after:opacity-20 after:duration-500 after:ease-out after:content-[''] hover:bg-cosmicgreendark hover:after:left-[120%]"
+        onClick={handleAddProcuctToCart}
+      >
         ADD TO CART
       </button>
     </div>
