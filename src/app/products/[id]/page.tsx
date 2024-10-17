@@ -21,7 +21,7 @@ export default async function ProductDetailsPage({
   }
 
   return (
-    <main className="mb-[150px] min-h-screen w-full px-4 pt-[87px] lg:max-w-[1100px]">
+    <main className="mb-[150px] min-h-screen w-full px-4 pt-[67px] lg:max-w-[1100px]">
       <div className="flex flex-col lg:flex-row">
         {/* Product scroll on drag images */}
         <DragScrollImages product={singleProduct} />

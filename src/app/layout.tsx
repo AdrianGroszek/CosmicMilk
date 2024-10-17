@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavBar } from "@/components/navbar";
 import Footer from "@/components/ui/footer";
 import { ReduxProvider } from "@/redux/provider";
+import { Toaster } from "react-hot-toast";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${dmSans.variable} ${oxanium.variable} relative font-sans antialiased`}
       >
         <ReduxProvider>
+          <Toaster />
           <NavBar />
           {children}
           <Footer />

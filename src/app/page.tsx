@@ -11,6 +11,7 @@ import whyCosmicMilkV2 from "@/public/why-cosmicmilk-v2.jpg";
 import whyCosmicMilkV3 from "@/public/why-cosmicmilk-v3.jpg";
 
 import SmoothScrollBtn from "@/components/ui/smooth-scroll-btn";
+import LoginSingupButtonsContainer from "@/components/login-singup-buttons-containet";
 
 export default function Home() {
   return (
@@ -132,12 +133,7 @@ export default function Home() {
             first sip? Choose your planet and start your flavor journey through
             the galaxy!
           </p>
-          <div className="flex justify-center gap-3">
-            <Button variant="btn" fill="border">
-              LOG IN
-            </Button>
-            <Button variant="btn">SING UP</Button>
-          </div>
+          <LoginSingupButtonsContainer />
         </div>
       </section>
     </main>

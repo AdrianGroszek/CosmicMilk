@@ -2,6 +2,7 @@ import { useAppSelector } from "@/redux/store";
 import Button from "./ui/button";
 import CartProductsList from "./cart-products-list";
 import ChceckoutWrapper from "./checkout-wrapper";
+import BackButton from "./back-button";
 
 type ProductsCartProps = {
   isOpen: boolean;
@@ -13,6 +14,10 @@ export default function ProductsCart({
   toggleOpenCartFunc,
 }: ProductsCartProps) {
   const cartList = useAppSelector((state) => state.cartReducer.products);
+
+  const totalCartItems = useAppSelector(
+    (state) => state.cartReducer.totalItems,
+  );
 
   // if (!isOpen) return null;
 
@@ -26,8 +31,8 @@ export default function ProductsCart({
         className={`absolute top-[57px] h-screen w-11/12 max-w-[800px] bg-navybluelight transition-all duration-300 sm:w-4/5 ${isOpen ? "visible right-0 opacity-100" : "invisible right-[-100px] opacity-0"}`}
       >
         <div className="flex h-[50px] w-full items-center justify-between bg-navybluedark px-6">
-          <button onClick={toggleOpenCartFunc}>BACK</button>
-          <span>BAG 0</span>
+          <BackButton modal={true} backBtnFunc={toggleOpenCartFunc} />
+          <span>BAG ({totalCartItems})</span>
         </div>
 
         {/* Empty cart */}

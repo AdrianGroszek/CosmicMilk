@@ -1,11 +1,15 @@
 "use client";
 
 import { type ProductType } from "@/redux/features/products-slice";
+import { useState } from "react";
+
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "@/redux/features/cart-slice";
+
 import StatusTag from "./ui/status-tag";
 import Button from "./ui/button";
-import { useState } from "react";
-import { addProductToCart } from "@/redux/features/cart-slice";
-import { useDispatch } from "react-redux";
+import BackButton from "./back-button";
+import toast from "react-hot-toast";
 
 type ProductInfoProps = {
   singleProduct: ProductType;
@@ -30,10 +34,12 @@ export default function ProductInfo({ singleProduct }: ProductInfoProps) {
 
   function handleAddProcuctToCart() {
     dispatch(addProductToCart(singleProduct, selectedProductVariants!));
+    toast.success("The product has been successfully added.");
   }
 
   return (
     <div className="sticky top-[87px] flex flex-col gap-2 lg:h-full lg:w-2/3 lg:pb-4 lg:pl-8">
+      <BackButton />
       <h3 className="font-bold">
         {singleProduct.name} ({selectedProductVariants?.capacity})
       </h3>
